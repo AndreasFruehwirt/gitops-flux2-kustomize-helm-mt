@@ -1,3 +1,8 @@
+image:
+    repository: eclipse-mosquitto
+    tag: 2.0.15
+    pullPolicy: IfNotPresent
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
