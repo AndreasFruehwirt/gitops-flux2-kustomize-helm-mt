@@ -6,8 +6,8 @@ serviceAccount:
   name: mosquitto-svc-account
 
 service:
-  type: ClusterIP
-  externalTrafficPolicy: NodePort
+  type: NodePort
+  # externalTrafficPolicy: NodePort
   annotations: {}
   # metallb.universe.tf/allow-shared-ip: pi-hole
 
