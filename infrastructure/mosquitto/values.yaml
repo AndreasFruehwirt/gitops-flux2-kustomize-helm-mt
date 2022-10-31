@@ -5,6 +5,12 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: mosquitto-svc-account
 
+service:
+  type: ClusterIP
+  externalTrafficPolicy: NodePort
+  annotations: {}
+  # metallb.universe.tf/allow-shared-ip: pi-hole
+
 persistence:
   enabled: true
   accessMode: ReadWriteOnce
