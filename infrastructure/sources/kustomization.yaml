@@ -5,3 +5,4 @@ resources:
   - bitnami.yaml
   - podinfo.yaml
   - t3n.yaml
+  - iotfruehwia.yaml
