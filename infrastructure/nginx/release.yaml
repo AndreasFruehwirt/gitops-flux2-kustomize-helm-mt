@@ -8,10 +8,10 @@ spec:
   releaseName: nginx-ingress-controller
   chart:
     spec:
-      chart: nginx-ingress-controller
+      chart: nginx-ingress
       sourceRef:
         kind: HelmRepository
-        name: ingress-nginx
+        name: nginx-stable
         namespace: cluster-config
       version: "4.4.2"
   interval: 1h0m0s
