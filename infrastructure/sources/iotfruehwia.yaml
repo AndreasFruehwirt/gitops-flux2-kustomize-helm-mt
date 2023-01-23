@@ -4,7 +4,7 @@ metadata:
   name: iotfruehwia
 spec:
   interval: 30m
-  type: "oci"
   url: oci://iotfruehwia.azurecr.io/helm/v1/repo
+  provider: "azure"
   secretRef:
     name: oci-creds
