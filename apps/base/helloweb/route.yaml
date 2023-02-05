@@ -5,8 +5,7 @@ metadata:
 spec:
   host: iot-k8s-edge.northeurope.cloudapp.azure.com
   path: "/test"   
-  port:
-    targetPort: 8080
+  
   to:
     kind: Service
-    name: service-name
+    name:  helloweb-service
