@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka
+  labels:
+    app: kafka-app
+  namespace: kafka-kraft
+spec:
+  serviceName: kafka-svc
+  selector:
+    matchLabels:
+      app: kafka-app
+  template:
+    metadata:
+      labels:
+        app: kafka-app
+    spec:
+      volumes:
+        - name: kafka-storage
+          persistentVolumeClaim:
+            claimName: kafka-pv-claim
+      containers:
+        - name: kbc-edge-kafka
+          image: acrsweuebnerapp.azurecr.io/edge-kafka:3.3.1-kbc1
+          resources:
+            limits:
+              cpu: "2"
+              memory: "1024Mi"
+          requests:
+              cpu: "2"
+              memory: "1024Mi"
+          ports:
+            - containerPort: 9092
+            - containerPort: 9093
+          env:
+            - name: KAFKA_HEAP_OPTS
+              value: '-Xmx768M -Xms768M'
+            - name: SERVICE
+              value: kafka-svc
+            - name: NAMESPACE
+              value: kafka-kraft
+            - name: KAFKA_ADVERTISED_LISTENERS
+              value: 'PLAINTEXT://%ADVERTISED_LISTENERS%:9092' 
+            - name: SHARE_DIR
+              value: /data
+          volumeMounts:
+            - name: kafka-storage
+              mountPath: /data
+
+
+
+
