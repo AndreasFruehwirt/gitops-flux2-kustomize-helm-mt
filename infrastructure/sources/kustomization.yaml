@@ -4,5 +4,5 @@ namespace: cluster-config
 resources:
   - bitnami.yaml
   - podinfo.yaml
-  - iotfruehwia.yaml
+  #- iotfruehwia.yaml
   - t3n.yaml
