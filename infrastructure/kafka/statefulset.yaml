@@ -22,13 +22,13 @@ spec:
       containers:
         - name: kbc-edge-kafka
           image: acrsweuebnerapp.azurecr.io/edge-kafka:3.3.1-kbc1
-          resources:
-            limits:
-              cpu: "2"
-              memory: "1024Mi"
-          requests:
-              cpu: "2"
-              memory: "1024Mi"
+          #resources:
+          #  limits:
+          #    cpu: "2"
+          #    memory: "1024Mi"
+          #requests:
+          #    cpu: "2"
+          #    memory: "1024Mi"
           ports:
             - containerPort: 9092
             - containerPort: 9093
