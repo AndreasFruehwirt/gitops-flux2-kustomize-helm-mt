@@ -21,7 +21,7 @@ spec:
       #      claimName: kafka-pv-claim
       containers:
         - name: kbc-edge-kafka
-          image: acrsweuebnerapp.azurecr.io/edge-kafka:3.3.1-kbc1
+          image: acrsweuebnerapp.azurecr.io/edge-kafka:3.3.2-kbc2
           #resources:
           #  limits:
           #    cpu: "2"
