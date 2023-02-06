@@ -15,10 +15,10 @@ spec:
       labels:
         app: kafka-app
     spec:
-      volumes:
-        - name: kafka-storage
-          persistentVolumeClaim:
-            claimName: kafka-pv-claim
+      #volumes:
+      #  - name: kafka-storage
+      #    persistentVolumeClaim:
+      #      claimName: kafka-pv-claim
       containers:
         - name: kbc-edge-kafka
           image: acrsweuebnerapp.azurecr.io/edge-kafka:3.3.1-kbc1
@@ -26,9 +26,9 @@ spec:
           #  limits:
           #    cpu: "2"
           #    memory: "1024Mi"
-          #requests:
-          #    cpu: "2"
-          #    memory: "1024Mi"
+          requests:
+              cpu: "2"
+              memory: "1024Mi"
           ports:
             - containerPort: 9092
             - containerPort: 9093
@@ -42,10 +42,19 @@ spec:
             - name: KAFKA_ADVERTISED_LISTENERS
               value: 'PLAINTEXT://%ADVERTISED_LISTENERS%:9092' 
             - name: SHARE_DIR
-              value: /data
+              value: /mnt/kafka
           volumeMounts:
-            - name: kafka-storage
-              mountPath: /data
+            - name: data
+              mountPath: /mnt/kafka
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: "1Gi"
 
 
 

@@ -9,8 +9,8 @@ namespace: kafka-kraft
 
 resources:
 - namespace.yaml
-- persistencevolume.yaml
-- pvc.yaml
+#- persistencevolume.yaml
+#- pvc.yaml
 - statefulset.yaml
 - service.yaml
 #- kafka.yaml
