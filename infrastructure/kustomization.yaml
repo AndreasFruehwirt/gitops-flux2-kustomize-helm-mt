@@ -5,5 +5,5 @@ resources:
   - mosquitto
 #  - nginx
   - redis
-#  - kafka
+  - kafka
 #  - nginx-ingress
