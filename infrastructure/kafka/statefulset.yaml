@@ -16,7 +16,7 @@ spec:
         app: kafka-app
     spec:
       imagePullSecrets:
-      - name: regcred
+      - name: regcred1
       #volumes:
       #  - name: kafka-storage
       #    persistentVolumeClaim:
